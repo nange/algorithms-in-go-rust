@@ -1,15 +1,15 @@
 package arraylist
 
 import (
-    "errors"
+    "error"
 )
 
 const DEFAULT_CAPACITY int = 10
 
 type List interface {
-	Size() int
-	Get(index int) (item interface, err error)
-	Set(index int, newVal interface) (oldItem interface, err error)
+    Size() int
+    Get(index int) (item interface, err error)
+    Set(index int, newVal interface) (oldItem interface, err error)
     Insert(index int, val interface)
     Append(val interface)
     Remove(index int)
