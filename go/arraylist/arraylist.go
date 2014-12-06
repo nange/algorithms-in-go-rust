@@ -18,7 +18,7 @@ type ArrayList struct {
 	dataStore []interface{}
 }
 
-func New() *ArrayList {
+func NewArrayList() *ArrayList {
 	return &ArrayList{
 		dataStore: make([]interface{}, 0, DEFAULT_CAPACITY),
 	}
