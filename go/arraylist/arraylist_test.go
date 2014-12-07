@@ -43,21 +43,66 @@ func TestSet(t *testing.T) {
 	}
 }
 
-//func TestInsert(t *testing.T) {
-//	list := New()
-//	list.Append(1)
-//	list.Append(2)
-//	list.Append(3)
-//	err := list.Insert(1, 4)
-//	if err != nil {
-//		t.Errorf("Insert a valid index, should not have error.")
-//	}
-//	first, _ := list.Get(0)
-//	second, _ := list.Get(1)
-//	third, _ := list.Get(2)
-//	four, _ := list.Get(3)
-//	if first.(int) != 1 || second.(int) != 4 || third.(int) != 2 || four.(int) != 3 {
-//		t.Errorf("arraylist#Insert() failed. Got:%d, %d, %d, %d. Excepted:1, 4, 2, 3.",
-//			first.(int), second.(int), third.(int), four.(int))
-//	}
-//}
+func TestInsert(t *testing.T) {
+	list := New()
+	list.Append(1)
+	list.Append(2)
+	list.Append(3)
+
+	err := list.Insert(0, 4)
+	if err != nil {
+		t.Errorf("arraylist#Insert() failed. Should not have error.")
+	}
+	first, _ := list.Get(0)
+	second, _ := list.Get(1)
+	third, _ := list.Get(2)
+	four, _ := list.Get(3)
+	if first.(int) != 4 || second.(int) != 1 || third.(int) != 2 || four.(int) != 3 {
+		t.Errorf("arraylist#Insert() failed. Got:%d, %d, %d, %d. Excepted:4, 1, 2, 3.",
+			first.(int), second.(int), third.(int), four.(int))
+	}
+}
+
+func TestAppend(t *testing.T) {
+	list := New()
+	list.Append("hello")
+	list.Append("world")
+	list.Append("nange")
+
+	if sv, _ := list.Get(2); sv != "nange" || list.Size() != 3 {
+		t.Error("arraylist#Append() failed.")
+	}
+}
+
+func TestRemove(t *testing.T) {
+	list := New()
+	list.Append("hello")
+	list.Append("world")
+
+	err := list.Remove(1)
+	if sv, _ := list.Get(0); sv != "hello" || err != nil {
+		t.Error("arraylist#Remove() failed.")
+	}
+}
+
+func TestClear(t *testing.T) {
+	list := New()
+	list.Append("hello")
+	list.Append("world")
+
+	list.Clear()
+	if list.Size() != 0 {
+		t.Errorf("arraylist#Clear() failed. size: %d, excepted size: 0", list.Size())
+	}
+}
+
+func TestString(t *testing.T) {
+	list := New()
+	list.Append("hello")
+	list.Append("world")
+
+	s := list.String()
+	if s != "[hello world]" {
+		t.Error("arraylist#Clear() failed.")
+	}
+}
