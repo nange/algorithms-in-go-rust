@@ -39,7 +39,8 @@ func TestSet(t *testing.T) {
 	}
 	newItem, _ := list.Get(1)
 	if sv, ok := newItem.(string); !ok || sv != "nange" {
-		t.Errorf("arraylist#Set() failed. Get a invalid value from list: %s, excepted value is: nange.", sv)
+		t.Errorf("arraylist#Set() failed. Get a invalid value from list: %s,"+
+			"excepted value is: nange.", sv)
 	}
 }
 
@@ -57,7 +58,8 @@ func TestInsert(t *testing.T) {
 	second, _ := list.Get(1)
 	third, _ := list.Get(2)
 	four, _ := list.Get(3)
-	if first.(int) != 4 || second.(int) != 1 || third.(int) != 2 || four.(int) != 3 {
+	if first.(int) != 4 || second.(int) != 1 || third.(int) != 2 ||
+		four.(int) != 3 || list.Size() != 4 {
 		t.Errorf("arraylist#Insert() failed. Got:%d, %d, %d, %d. Excepted:4, 1, 2, 3.",
 			first.(int), second.(int), third.(int), four.(int))
 	}
@@ -80,7 +82,7 @@ func TestRemove(t *testing.T) {
 	list.Append("world")
 
 	err := list.Remove(1)
-	if sv, _ := list.Get(0); sv != "hello" || err != nil {
+	if sv, _ := list.Get(0); sv != "hello" || err != nil || list.Size() != 1 {
 		t.Error("arraylist#Remove() failed.")
 	}
 }
