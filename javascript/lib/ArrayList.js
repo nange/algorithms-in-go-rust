@@ -70,13 +70,6 @@ ArrayList.prototype.clear = function() {
   this.dataStore = [];
 };
 
-ArrayList.prototype.find = function(val) {
-  for (var i = 0; i < this.dataStore.length; i++) {
-    if (this.dataStore[i] === val) return i;
-  }
-  return -1;
-};
-
 ArrayList.prototype.iterator = function() {
   return new Iterator(this);
 };

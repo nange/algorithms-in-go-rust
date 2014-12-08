@@ -99,18 +99,6 @@ describe('ArrayList', function() {
     });
   });
 
-  describe('#find(val)', function() {
-    it('should return a valid value', function() {
-      var arrayList = new ArrayList();
-      arrayList.append(1);
-      arrayList.append(2);
-      arrayList.append(3);
-
-      arrayList.find(2);
-      assert.equal(1, arrayList.find(2));
-    });
-  });
-
   describe('#iterator()', function() {
     it('should return a valid value', function() {
       var arrayList = new ArrayList();
