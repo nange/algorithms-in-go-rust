@@ -2,13 +2,14 @@
 #define __ARRAYLIST_H__
 
 typedef struct ArrayList {
-	unsigned int theSize;
-	void *dataStore;
+	int theSize;
+	int capacity;
+	void **dataStore;
 	
-	int (*size)();
-	//void *(*get)(ArrayList *, unsigned int);
-	//void (*set)(ArrayList *, unsigned int, void *);
-	//void (*append)(ArrayList *, void *);
+	int (*size)(struct ArrayList *);
+	void *(*get)(struct ArrayList *, unsigned int);
+	void (*set)(struct ArrayList *, unsigned int, void *);
+	void (*append)(struct ArrayList *, void *);
 	//void (*insertAfter)(ArrayList *, unsigned int, void *);
 	//void (*remove)(ArrayList *, unsigned int);
 	//void (*clear)(ArrayList *);
