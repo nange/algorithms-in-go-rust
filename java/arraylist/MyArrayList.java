@@ -6,7 +6,7 @@ import java.lang.String;
 public class MyArrayList<AnyType> {
 	private static final int DEFAULT_CAPACITY = 10;
 
-    private int size;
+	private int size;
     private AnyType[] items;
 
     public MyArrayList() {

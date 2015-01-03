@@ -20,6 +20,10 @@ ArrayList *listCreate() {
 	list->get = listGet;
 	list->set = listSet;
 	list->append = listAppend;
+	list->insert = listInsert;
+	list->remove = listRemove;
+	list->clear = listClear;
+	list->destory = listDestory;
 	
 	return list;
 }
@@ -52,8 +56,34 @@ void listAppend(ArrayList *list, void *value) {
 	list->dataStore[list->theSize++] = value;
 }
 
+void listInsert(ArrayList *list, unsigned int index, void *value) {
+	assert(index < list->theSize);
+	listIsRealloc(list);
+	
+	memmove(list->dataStore+index+1, list->dataStore+index, 
+		sizeof(void *) * (list->theSize-index));
+	
+	list->dataStore[index] = value;
+	list->theSize++;
+}
 
+void listRemove(ArrayList *list, unsigned int index) {
+	assert(index < list->theSize);
+	memmove(list->dataStore+index, list->dataStore+index+1, 
+		sizeof(void *) * (list->theSize-index-1));
+	
+	list->theSize--;
+}
 
+void listClear(ArrayList *list) {
+	free(list->dataStore);
+	list->dataStore = malloc(sizeof(void *) * ARRAYLIST_DEAUFALT_SIZE);
+	assert(list->dataStore);
+	list->theSize = 0;
+	list->capacity = ARRAYLIST_DEAUFALT_SIZE;
+}
 
-
-
+void listDestory(ArrayList *list) {
+	free(list->dataStore);
+	free(list);
+}

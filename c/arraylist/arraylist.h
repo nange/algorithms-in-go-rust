@@ -10,9 +10,10 @@ typedef struct ArrayList {
 	void *(*get)(struct ArrayList *, unsigned int);
 	void (*set)(struct ArrayList *, unsigned int, void *);
 	void (*append)(struct ArrayList *, void *);
-	//void (*insertAfter)(ArrayList *, unsigned int, void *);
-	//void (*remove)(ArrayList *, unsigned int);
-	//void (*clear)(ArrayList *);
+	void (*insert)(struct ArrayList *, unsigned int, void *);
+	void (*remove)(struct ArrayList *, unsigned int);
+	void (*clear)(struct ArrayList *);
+	void (*destory)(struct ArrayList *);
 } ArrayList;
 
 /* Prototypes */
@@ -21,8 +22,9 @@ int listSize(ArrayList *list);
 void *listGet(ArrayList *list, unsigned int index);
 void listSet(ArrayList *list, unsigned int index, void *value);
 void listAppend(ArrayList *list, void *value);
-void listInsertAfter(ArrayList *list, unsigned int index, void *value);
+void listInsert(ArrayList *list, unsigned int index, void *value);
 void listRemove(ArrayList *list, unsigned int index);
 void listClear(ArrayList *list);
+void listDestory(ArrayList *list);
 
 #endif	/* __ARRAYLIST_H__ */
