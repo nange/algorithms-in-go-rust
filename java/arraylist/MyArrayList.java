@@ -1,8 +1,10 @@
 package arraylist;
 
 import java.lang.ArrayIndexOutOfBoundsException;
+import java.util.Iterator;
+import java.util.NoSuchElementException;
 
-public class MyArrayList<AnyType> {
+public class MyArrayList<AnyType> implements Iterable<AnyType>{
 	private static final int DEFAULT_CAPACITY = 10;
 
 	private int size;
@@ -76,4 +78,33 @@ public class MyArrayList<AnyType> {
 			items[i] = old[i];
 		}
 	}
+
+	@Override
+	public Iterator<AnyType> iterator() {
+		return new ArrayListIterator();
+	}
+	
+	private class ArrayListIterator implements Iterator<AnyType> {
+		private int current = 0;
+
+		@Override
+		public boolean hasNext() {
+			return current < size();
+		}
+
+		@Override
+		public AnyType next() {
+			if (!hasNext()) {
+				throw new NoSuchElementException();
+			}
+			return items[current++];
+		}
+		
+		@Override
+		public void remove() {
+			MyArrayList.this.remove(--current);
+		}
+		
+	}
+	
 }

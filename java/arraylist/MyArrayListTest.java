@@ -2,6 +2,8 @@ package arraylist;
 
 import static org.junit.Assert.*;
 
+import java.util.Iterator;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -71,6 +73,20 @@ public class MyArrayListTest {
 		list.remove(2);
 		assertEquals(2, list.size());
 		assertEquals("2", list.get(1));
+	}
+	
+	public void testIterator() {
+		list.add("1");
+		list.add("2");
+		list.add("3");
+		
+		for (Iterator<String> it = list.iterator(); it.hasNext();) {
+			String item = it.next();
+			if (item.equals("2")) {
+				it.remove();
+			}
+		}
+		assertEquals("3", list.get(1));
 	}
 	
 }
