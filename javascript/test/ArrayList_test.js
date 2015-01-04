@@ -1,5 +1,5 @@
 var assert = require('assert');
-var ArrayList = require('../lib/ArrayList.js');
+var ArrayList = require('../lib/arraylist/ArrayList.js');
 
 describe('ArrayList', function() {
   describe('#size()', function() {
