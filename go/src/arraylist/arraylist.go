@@ -18,6 +18,21 @@ type List interface {
 	String()
 }
 
+type Iterator interface {
+	HasNext() bool
+	Next() (interface{}, error)
+	Remove()
+}
+
+type Iterable interface {
+	Iterator() Iterator
+}
+
+type arrayListIterator struct {
+	list    *ArrayList
+	current int
+}
+
 type ArrayList struct {
 	dataStore []interface{}
 	theSize   int
@@ -94,4 +109,29 @@ func (list *ArrayList) ensureCapacity() {
 
 func (list *ArrayList) String() string {
 	return fmt.Sprint(list.dataStore)
+}
+
+func (list *ArrayList) Iterator() Iterator {
+	iterator := new(arrayListIterator)
+	iterator.current = 0
+	iterator.list = list
+	return iterator
+}
+
+func (it *arrayListIterator) HasNext() bool {
+	return it.current < it.list.Size()
+}
+
+func (it *arrayListIterator) Next() (interface{}, error) {
+	if !it.HasNext() {
+		return nil, errors.New("No Such Element.")
+	}
+	v, err := it.list.Get(it.current)
+	it.current++
+	return v, err
+}
+
+func (it *arrayListIterator) Remove() {
+	it.current--
+	it.list.Remove(it.current)
 }

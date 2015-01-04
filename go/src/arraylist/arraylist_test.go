@@ -108,3 +108,55 @@ func TestString(t *testing.T) {
 		t.Error("arraylist#Clear() failed.")
 	}
 }
+
+func TestIterator(t *testing.T) {
+	list := New()
+	list.Append("1")
+	list.Append("2")
+
+	it := list.Iterator()
+	if it == nil {
+		t.Error("arraylist#Iterator() failed.")
+	}
+}
+
+func TestHasNext(t *testing.T) {
+	list := New()
+	list.Append("1")
+	list.Append("2")
+
+	it := list.Iterator()
+	if !it.HasNext() {
+		t.Error("Iterator#HasNext() failed.")
+	}
+}
+
+func TestNext(t *testing.T) {
+	list := New()
+	list.Append("1")
+	list.Append("2")
+
+	it := list.Iterator()
+	item, _ := it.Next()
+	if v, ok := item.(string); !ok || v != "1" {
+		t.Error("Iterator#Next() failed.")
+	}
+}
+
+func TestIteratorRemove(t *testing.T) {
+	list := New()
+	list.Append("1")
+	list.Append("2")
+	list.Append("3")
+
+	for it := list.Iterator(); it.HasNext(); {
+		item, _ := it.Next()
+		v, _ := item.(string)
+		if v == "3" {
+			it.Remove()
+		}
+	}
+	if list.Size() != 2 {
+		t.Error("Iterator#Remove() failed.")
+	}
+}
