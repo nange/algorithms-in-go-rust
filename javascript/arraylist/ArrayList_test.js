@@ -1,5 +1,5 @@
 var assert = require('assert');
-var ArrayList = require('../lib/arraylist/ArrayList.js');
+var ArrayList = require('./ArrayList.js');
 
 describe('ArrayList', function() {
   describe('#size()', function() {
@@ -57,7 +57,7 @@ describe('ArrayList', function() {
       assert.doesNotThrow(function() {
         arrayList.insert(0, 2);
       });
-      
+
       assert.equal(2, arrayList.get(0));
       assert.equal(2, arrayList.size());
     });
@@ -67,7 +67,7 @@ describe('ArrayList', function() {
     it('should append success and have no error', function() {
       var arrayList = new ArrayList();
       arrayList.append(1);
-      
+
       assert.equal(1, arrayList.get(0));
       assert.equal(1, arrayList.size());
     });

@@ -14,10 +14,10 @@
 ## 目录
 1. [列表](#user-content-列表)
 2. [栈](#user-content-栈)
-3. [队列](#队列)
-4. [链表](#链表)
-5. [字典](#字典)
-6. [散列](#散列)
+3. [队列](#user-content-队列)
+4. [链表](#user-content-链表)
+5. [字典](#user-content-字典)
+6. [散列](#user-content-散列)
 
 
 ### 列表
@@ -25,9 +25,8 @@
 它提供了对列表数据的一系列操作，比如：添加、删除、修改、遍历等功能。
 当我们把这样的具体问题抽象成用列表去解决的时候，往往可以简化问题。
 
-具体实现： [Go](go/src/arraylist) 、 [Javascript](javascript/lib/arraylist) 、 
+具体实现： [Go](go/src/arraylist) 、 [Javascript](javascript/arraylist) 、 
 [Java](java/arraylist) 、 [C](c/arraylist)
 
 
 ### 栈
-
