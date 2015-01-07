@@ -23,4 +23,8 @@ Stack.prototype.size = function() {
   return this.dataStore.length;
 };
 
+Stack.prototype.isEmpty = function() {
+  return this.dataStore.length === 0;
+};
+
 module.exports = Stack;

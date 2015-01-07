@@ -24,9 +24,10 @@ describe('Stack', function() {
     });
   });
 
-  describe('#clear()', function() {
+  describe('#clear(), #isEmpty()', function() {
     it('should return 0, when Stack called clear()', function() {
       var stack = new Stack();
+      assert(stack.isEmpty());
       stack.push('1');
       stack.push('2');
       stack.push('3');

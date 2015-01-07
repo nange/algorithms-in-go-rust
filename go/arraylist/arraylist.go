@@ -15,7 +15,7 @@ type List interface {
 	Append(val interface{})
 	Remove(index int) error
 	Clear()
-	String()
+	String() string
 }
 
 type Iterator interface {
