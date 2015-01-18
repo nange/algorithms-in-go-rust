@@ -85,6 +85,10 @@ func TestRemove(t *testing.T) {
 	if sv, _ := list.Get(0); sv != "hello" || err != nil || list.Size() != 1 {
 		t.Error("arraylist#Remove() failed.")
 	}
+	err2 := list.Remove(0)
+	if err2 != nil {
+		t.Error("arraylist#Remove() failed.")
+	}
 }
 
 func TestClear(t *testing.T) {
