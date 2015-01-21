@@ -10,8 +10,7 @@ public class QueueTest {
 
 	@Before
 	public void setUp() throws Exception {
-		System.out.println("size: " + q.size());
-		q.clear();
+		q = new Queue<String>();
 	}
 
 	@Test
