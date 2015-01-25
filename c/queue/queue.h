@@ -10,9 +10,10 @@ typedef struct Queue {
 	void *(*dequeue)();
 	int (*size)();
 	bool (*isEmpty)();
-	void *(font)();
-	void *(end)();
-	void (clear)();
+	void *(*font)();
+	void *(*end)();
+	void (*clear)();
+	void (*destory)();
 } Queue;
 
 /* Prototypes */
@@ -24,5 +25,6 @@ bool queueIsEmpty(Queue *);
 void *queueFont(Queue *);
 void *queueEnd(Queue *);
 void queueClear(Queue *);
+void queueDestory(Queue *);
 
-#endif __QUEUE_H__
+#endif /*__QUEUE_H__*/

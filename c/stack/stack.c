@@ -28,7 +28,7 @@ Stack *stackCreate() {
 void stackShouldRealloc(Stack *s) {
   if (s->top == s->capacity) {
     s->capacity = s->capacity*2;
-    s->dataStore = realloc(s->dataStore, sizeof(void *)*s->capacity);
+    s->dataStore = realloc(s->dataStore, sizeof(void *) * s->capacity);
   }
 }
 
