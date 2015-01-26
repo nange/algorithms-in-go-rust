@@ -13,7 +13,7 @@
 ## 目录
 1. [列表](#user-content-列表) (完成)
 2. [栈](#user-content-栈) (完成)
-3. [队列](#user-content-队列) (进行中...)
+3. [队列](#user-content-队列) (完成)
 4. [链表](#user-content-链表) (待处理...)
 5. [字典](#user-content-字典) (待处理...)
 6. [散列](#user-content-散列) (待处理...)
