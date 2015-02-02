@@ -14,7 +14,7 @@
 1. [列表](#user-content-列表) (完成)
 2. [栈](#user-content-栈) (完成)
 3. [队列](#user-content-队列) (完成)
-4. [链表](#user-content-链表) (待处理...)
+4. [链表](#user-content-链表) (进行中...)
 5. [字典](#user-content-字典) (待处理...)
 6. [散列](#user-content-散列) (待处理...)
 7. [集合](#user-content-集合) (待处理...) (待处理...)
@@ -50,3 +50,12 @@
 
 具体实现: [Go](go/queue) 、[Javascript](javascript/queue) 、
 [Java](java/queue) 、 [C](c/queue)
+
+
+### 链表
+有时候数组不一定是最佳的组织数据的数据结构，因为数组通常都是固定大小的，当数据填满时，
+再加入新元素就变得很困难。在数组中，添加和删除元素也很麻烦，因为要移动数组中的其他元素。
+因此如果需要频繁的添加或者删除元素，可以考虑使用链表组织数据。
+
+具体实现: [Go](go/linkedlist) 、[Javascript](javascript/linkedlist) 、
+[Java](java/linkedlist) 、 [C](c/linkedlist)
