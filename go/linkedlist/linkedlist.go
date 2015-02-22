@@ -12,6 +12,7 @@ type Lister interface {
 	InsertAfter(v interface{}, mark *Element) *Element
 	MoveBefore(e, mark *Element)
 	MoveAfter(e, mark *Element)
+	MoveToFront(e *Element)
 }
 
 type Element struct {
@@ -141,4 +142,18 @@ func (l *List) MoveAfter(e, mark *Element) {
 		return
 	}
 	l.insert(l.remove(e), mark)
+}
+
+func (l *List) MoveToFront(e *Element) {
+	if e.list != l || l.root.next == e {
+		return
+	}
+	l.insert(l.remove(e), &l.root)
+}
+
+func (l *List) MoveToBack(e *Element) {
+	if e.list != l || l.root.prev == e {
+		return
+	}
+	l.insert(l.remove(e), l.root.prev)
 }
