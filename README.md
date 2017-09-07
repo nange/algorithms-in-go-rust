@@ -3,9 +3,9 @@
 四种语言（Go，Javascript，Java，C）实现常用数据结构和算法。
 
 所有代码都经过具体测试运行，具体环境为：
-- 操作系统：ubuntu14.04 64位
-- Go语言版本： Go 1.4.1
-- Javascript执行环境： Nodejs 0.11.14
+- 操作系统：ubuntu16.04 64位
+- Go语言版本： Go 1.8.3
+- Javascript执行环境： Nodejs 6.11.3
 - Java版本： Java 1.8.0_25
 - C语言编译器： gcc 4.8.2
 
@@ -14,14 +14,13 @@
 1. [列表](#user-content-列表) (完成)
 2. [栈](#user-content-栈) (完成)
 3. [队列](#user-content-队列) (完成)
-4. [链表](#user-content-链表) (进行中...)
+4. [链表](#user-content-链表) (go完成...)
 5. [字典](#user-content-字典) (待处理...)
-6. [散列](#user-content-散列) (待处理...)
-7. [集合](#user-content-集合) (待处理...) (待处理...)
-8. [二叉树和二叉查找树](#user-content-二叉树和二叉查找树) (待处理...)
-9. [图和图算法](#user-content-图和图算法) (待处理...)
-10. [排序算法](#user-content-排序算法) (待处理...)
-11. [检索算法](#user-content-检索算法) (待处理...)
+6. [集合](#user-content-集合) (待处理...) (待处理...)
+7. [二叉树和二叉查找树](#user-content-二叉树和二叉查找树) (待处理...)
+8. [图和图算法](#user-content-图和图算法) (待处理...)
+9. [排序算法](#user-content-排序算法) (待处理...)
+10. [检索算法](#user-content-检索算法) (待处理...)
 
 
 ### 列表
@@ -59,3 +58,11 @@
 
 具体实现: [Go](go/linkedlist) 、[Javascript](javascript/linkedlist) 、
 [Java](java/linkedlist) 、 [C](c/linkedlist)
+
+
+### 字典
+字典类型(map)，是一种KV结构，通过key能够找到对应的value，map类型的特点是查询非常快(O(1))，
+原理是通过一个hash函数能快速的找到对应的key的位置，在实际编程中，map类型几乎无处不在。
+
+具体实现: [Go](go/hashmap) 、[Javascript](javascript/hashmap) 、
+[Java](java/hashmap) 、 [C](c/hashmap)
