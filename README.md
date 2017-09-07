@@ -14,13 +14,12 @@
 1. [列表](#user-content-列表) (完成)
 2. [栈](#user-content-栈) (完成)
 3. [队列](#user-content-队列) (完成)
-4. [链表](#user-content-链表) (go完成...)
-5. [字典](#user-content-字典) (待处理...)
-6. [集合](#user-content-集合) (待处理...) (待处理...)
-7. [二叉树和二叉查找树](#user-content-二叉树和二叉查找树) (待处理...)
-8. [图和图算法](#user-content-图和图算法) (待处理...)
-9. [排序算法](#user-content-排序算法) (待处理...)
-10. [检索算法](#user-content-检索算法) (待处理...)
+4. [链表](#user-content-链表) (go,javascript完成...)
+5. [字典](#user-content-字典) (go完成)
+6. [二叉树和二叉查找树](#user-content-二叉树和二叉查找树) (待处理...)
+7. [图和图算法](#user-content-图和图算法) (待处理...)
+8. [排序算法](#user-content-排序算法) (待处理...)
+9. [检索算法](#user-content-检索算法) (待处理...)
 
 
 ### 列表
