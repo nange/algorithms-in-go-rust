@@ -16,7 +16,7 @@
 3. [队列](#user-content-队列) (完成)
 4. [链表](#user-content-链表) (golang,javascript 完成...)
 5. [字典](#user-content-字典) (golang 完成)
-6. [二叉树和二叉查找树](#user-content-二叉树和二叉查找树) (待处理...)
+6. [二叉树和二叉查找树](#user-content-二叉树和二叉查找树) (golang 完成)
 7. [图和图算法](#user-content-图和图算法) (待处理...)
 8. [排序算法](#user-content-排序算法) (待处理...)
 9. [检索算法](#user-content-检索算法) (待处理...)
@@ -65,3 +65,12 @@
 
 具体实现: [Go](go/hashmap) 、[Javascript](javascript/hashmap) 、
 [Java](java/hashmap) 、 [C](c/hashmap)
+
+
+### 二叉树和二叉查找(搜索)树
+二叉树可以看作是链表的二维扩展，链表的一个节点只有一个next指针，但是二叉树的一个节点可以有两个
+next指针(通常被称作left,right)，二维扩展后可以解决一维链表的一些问题，比如查找慢等。 
+二叉查找树可以把查找，添加，删除元素的时间复杂度降到O(logN)。 
+
+具体实现: [Go](go/binarytree) 、[Javascript](javascript/binarytree) 、
+[Java](java/binarytree) 、 [C](c/binarytree)
