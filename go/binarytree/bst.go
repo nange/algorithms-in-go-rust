@@ -1,3 +1,4 @@
+// 图解参考: http://www.cnblogs.com/MrListening/p/5782752.html
 package binarytree
 
 type Node struct {
@@ -23,6 +24,19 @@ func (n *Node) Compare(m *Node) int {
 
 func (n *Node) Value() int {
 	return n.value
+}
+
+func (n *Node) delete(parent bool) {
+	if parent && n.parent != nil {
+		if n.parent.left == n {
+			n.parent.left = nil
+		} else {
+			n.parent.right = nil
+		}
+	}
+	n.left = nil
+	n.right = nil
+	n.parent = nil
 }
 
 type BSTree struct {
@@ -87,23 +101,70 @@ func (bst *BSTree) Find(i int) *Node {
 	return nil
 }
 
+// 分四种情况处理:
+// 1. 要删除的节点无左右孩子
+// 2. 要删除的节点只有左孩子
+// 3. 要删除的节点只有右孩子
+// 4. 要删除的节点有左、右孩子
 func (bst *BSTree) Delete(i int) bool {
+	var parent *Node
 	h := bst.head
 	n := &Node{value: i}
 	for h != nil {
 		switch n.Compare(h) {
 		case -1:
+			parent = h
 			h = h.left
 		case 1:
+			parent = h
 			h = h.right
 		case 0:
-			if h.left != nil {
-				h.parent.left = h.left
+			isleftleaf := false
+			if h != bst.head && parent.left == h { // 当前节点不是root节点
+				isleftleaf = true
 			}
-			if h.right != nil {
-				h.parent.right = h.right
+			if h.left == nil && h.right == nil {
+				if h == bst.head {
+					bst.head = nil
+					bst.size--
+					return true
+				}
+				h.delete(true)
 			}
-			h = nil
+
+			if h.left != nil && h.right == nil {
+				if h == bst.head {
+					bst.head = h.left
+					bst.size--
+					return true
+				}
+				if isleftleaf {
+					parent.left = h.left
+				} else {
+					parent.right = h.left
+				}
+				h.delete(false)
+			}
+
+			if h.right != nil && h.left == nil {
+				if h == bst.head {
+					bst.head = h.right
+					bst.size--
+					return true
+				}
+				if isleftleaf {
+					parent.left = h.right
+				} else {
+					parent.right = h.right
+				}
+				h.delete(false)
+			}
+
+			if h.left != nil && h.right != nil {
+				leftmost := findLeftmost(h.right)
+				h.value, leftmost.value = leftmost.value, h.value
+				leftmost.delete(true)
+			}
 			bst.size--
 			return true
 		}
@@ -113,6 +174,17 @@ func (bst *BSTree) Delete(i int) bool {
 
 func (bst *BSTree) Size() int {
 	return bst.size
+}
+
+func findLeftmost(n *Node) *Node {
+	if n == nil {
+		return nil
+	}
+	ret := n
+	for ret.left != nil {
+		ret = ret.left
+	}
+	return ret
 }
 
 func PreOrder(root *Node, ret *[]int) {

@@ -28,7 +28,8 @@ func TestBSTree(t *testing.T) {
 	}
 
 	five := bst.Find(5)
-	if five.Value() != 5 {
+	if five.Value() != 5 || five.parent.value != 4 ||
+		five.right.value != 6 || five.left != nil {
 		t.Errorf("node value should be 5")
 		return
 	}
@@ -40,7 +41,8 @@ func TestBSTree(t *testing.T) {
 	}
 
 	four := bst.Find(4)
-	if four.Value() != 4 {
+	if four.Value() != 4 || four.right.value != 6 ||
+		four.left.value != 2 || four.parent.value != 1 {
 		t.Errorf("node value should be 4")
 		return
 	}
