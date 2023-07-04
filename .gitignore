@@ -1,6 +1,6 @@
 pkg
 .idea
-java/.project
+go.sum
 
 /rust/target
 **/*.rs.bk
