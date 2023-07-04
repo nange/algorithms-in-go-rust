@@ -1,0 +1,9 @@
+[package]
+name = "the_algorithms"
+edition = "2021"
+version = "0.1.0"
+authors = ["Lance Li <cctonange@gmail.com>"]
+
+[dependencies]
+
+[dev-dependencies]
