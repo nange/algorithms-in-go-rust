@@ -1,4 +1,4 @@
-/// 合并两个有序链表：https://leetcode.cn/problems/merge-two-sorted-lists/
+/// Ref：https://leetcode.cn/problems/merge-two-sorted-lists/
 
 /// Definition for singly-linked list.
 #[derive(PartialEq, Eq, Clone, Debug)]
@@ -7,36 +7,41 @@ pub struct ListNode {
     pub next: Option<Box<ListNode>>,
 }
 
-impl ListNode {
-    fn new(val: i32) -> Self {
-        ListNode { next: None, val }
-    }
-}
-
 pub fn merge_two_lists(
     list1: Option<Box<ListNode>>,
     list2: Option<Box<ListNode>>,
 ) -> Option<Box<ListNode>> {
-    if list1.is_none() {
-        return list2;
+    let mut dummy_head = Some(Box::new(ListNode { val: 0, next: None }));
+    let mut tail = &mut dummy_head;
+
+    let mut l1 = list1;
+    let mut l2 = list2;
+    while l1.is_some() && l2.is_some() {
+        if l1.as_ref().unwrap().val < l2.as_ref().unwrap().val {
+            let next = l1.as_mut().unwrap().next.take();
+            tail.as_mut().unwrap().next = l1;
+            l1 = next;
+        } else {
+            let next = l2.as_mut().unwrap().next.take();
+            tail.as_mut().unwrap().next = l2;
+            l2 = next;
+        }
+        tail = &mut tail.as_mut().unwrap().next;
     }
-    if list2.is_none() {
-        return list1;
+
+    if l1.is_some() {
+        tail.as_mut().unwrap().next = l1;
+    } else {
+        tail.as_mut().unwrap().next = l2;
     }
 
-    let mut dummy = ListNode::new(-1);
-    let mut p = &mut dummy;
-
-    let mut p1 = list1.unwrap();
-    let mut p2 = list2.unwrap();
-
-    loop {}
-
-    todo!()
+    dummy_head.unwrap().next
 }
 
 #[cfg(test)]
 mod tests {
+    use crate::linkedlist::merge_two_lists;
+
     use super::*;
 
     #[test]
@@ -44,7 +49,19 @@ mod tests {
         let ret1 = merge_two_lists(None, None);
         assert!(ret1.is_none());
 
-        let ret2 = merge_two_lists(None, Some(Box::new(ListNode::new(1))));
-        assert_eq!(ret2, Some(Box::new(ListNode::new(1))));
+        let ret2 = merge_two_lists(None, Some(Box::new(ListNode { val: 1, next: None })));
+        assert_eq!(ret2, Some(Box::new(ListNode { val: 1, next: None })));
+
+        let ret3 = merge_two_lists(
+            Some(Box::new(ListNode { val: 1, next: None })),
+            Some(Box::new(ListNode { val: 2, next: None })),
+        );
+        assert_eq!(
+            ret3,
+            Some(Box::new(ListNode {
+                val: 1,
+                next: Some(Box::new(ListNode { val: 2, next: None }))
+            }))
+        )
     }
 }
