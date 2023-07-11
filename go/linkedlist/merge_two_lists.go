@@ -22,12 +22,12 @@ func MergeTwoLists(list1 *ListNode, list2 *ListNode) *ListNode {
 	var p = dummy
 
 	for {
-		if p1.Val >= p2.Val {
-			p.Next = p2
-			p2 = p2.Next
-		} else {
+		if p1.Val <= p2.Val {
 			p.Next = p1
 			p1 = p1.Next
+		} else {
+			p.Next = p2
+			p2 = p2.Next
 		}
 		p = p.Next
 
@@ -44,4 +44,25 @@ func MergeTwoLists(list1 *ListNode, list2 *ListNode) *ListNode {
 	}
 
 	return dummy.Next
+}
+
+func MergeTwoListsWithRecursion(list1 *ListNode, list2 *ListNode) *ListNode {
+	if list1 == nil {
+		return list2
+	}
+	if list2 == nil {
+		return list1
+	}
+
+	if list1.Val <= list2.Val {
+		return &ListNode{
+			Val:  list1.Val,
+			Next: MergeTwoListsWithRecursion(list1.Next, list2),
+		}
+	} else {
+		return &ListNode{
+			Val:  list2.Val,
+			Next: MergeTwoListsWithRecursion(list1, list2.Next),
+		}
+	}
 }
