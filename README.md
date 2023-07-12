@@ -26,6 +26,8 @@
 
 ##### 合并两个有序链表
 
+Ref: <https://leetcode.cn/problems/merge-two-sorted-lists/>
+
 [Go实现](/go/linkedlist/merge_two_lists.go)、[Rust实现](/rust/src/linkedlist/merge_two_lists.rs)
 
 代码中用到了`p1`, `p2`两个指针用于比较两个链表节点的推进，`p`指针用于生成新链表节点的推进。在这个过程中没有数据的复制，只有对指针指向的改变，效率很高。
@@ -36,6 +38,12 @@
 > 这个问题还有另外一种解法，就是利用递归，可以去掉两个指针，因为在递归栈中可以自动保存这两个状态。参考上面两个文件中的递归实现。通常来说，递归实现的代码都会更简单，但空间复杂度更高。
 
 ##### 单链表的分解
+
+Ref: <https://leetcode.cn/problems/partition-list/description/>
+
+[Go实现](/go/linkedlist/partition.go)、[Rust实现](/rust/src/linkedlist/partition.rs)
+
+我们可以把原链表分成两个小链表，一个链表中的元素大小都小于 x，另一个链表中的元素都大于等于 x，最后再把这两条链表接到一起，就得到了题目想要的结果。
 
 ## 参考资料
 
