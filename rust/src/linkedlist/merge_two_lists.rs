@@ -1,11 +1,4 @@
-/// Ref：https://leetcode.cn/problems/merge-two-sorted-lists/
-
-/// Definition for singly-linked list.
-#[derive(PartialEq, Eq, Clone, Debug)]
-pub struct ListNode {
-    pub val: i32,
-    pub next: Option<Box<ListNode>>,
-}
+use super::ListNode;
 
 pub fn merge_two_lists(
     list1: Option<Box<ListNode>>,

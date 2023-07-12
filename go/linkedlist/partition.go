@@ -1,7 +1,5 @@
 package linkedlist
 
-// Ref: https://leetcode.cn/problems/partition-list/
-
 func Partition(head *ListNode, x int) *ListNode {
 	// 左节点用于存储小于x的值, 右节点用于存储大于x的值
 	var dummyLeft, dummyRight = &ListNode{}, &ListNode{}
