@@ -45,6 +45,15 @@ Ref: <https://leetcode.cn/problems/partition-list/description/>
 
 我们可以把原链表分成两个小链表，一个链表中的元素大小都小于 x，另一个链表中的元素都大于等于 x，最后再把这两条链表接到一起，就得到了题目想要的结果。
 
+##### 合并K个有序链表
+
+Ref: <https://leetcode.cn/problems/merge-k-sorted-lists/>
+
+[Go实现](/go/linkedlist/merge_k_lists.go)、[Rust实现](/rust/src/linkedlist/merge_k_lists.rs)
+
+合并 k 个有序链表的逻辑类似合并两个有序链表，难点在于，如何快速得到 k 个节点中的最小节点，接到结果链表上？ 通常的一种想法是可以把链表头放到数组里，可以写一个循环判断，每次找出一个最小值，这样的时间复杂度是O(N*K)，N是所有链表的节点数量，K是链表个数。不过还有一种更高效的方式，可以把K个链表头放入
+**优先级队列（二叉堆）**中，放入一个最小堆中，每次就能方便的获得K个节点中的最小值，算法复杂度是：O(N*Log(K))。
+
 ## 参考资料
 
 本项目内容主要参考：[labuladong 的算法小抄](https://labuladong.github.io/algo/)
