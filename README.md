@@ -52,9 +52,22 @@ Ref: <https://leetcode.cn/problems/merge-k-sorted-lists/>
 [Go实现](/go/linkedlist/merge_k_lists.go)、[Rust实现](/rust/src/linkedlist/merge_k_lists.rs)
 
 合并 k 个有序链表的逻辑类似合并两个有序链表，难点在于，如何快速得到 k 个节点中的最小节点，接到结果链表上？
+
 通常的一种想法是可以把链表头放到数组里，可以写一个循环判断，每次找出一个最小值，这样的时间复杂度是`O(N*K)`，N是所有链表的节点数量，K 是链表个数。
 
 不过还有一种更高效的方式，可以把K个链表头放入 **优先级队列（二叉堆）** 中，放入一个最小堆中，每次就能方便的获得K个节点中的最小值，算法复杂度是：`O(N*Log(K))`。
+
+##### 单链表倒数第K个节点
+
+Ref: <https://leetcode.cn/problems/remove-nth-node-from-end-of-list/>
+
+[Go实现](/go/linkedlist/remove_nth_from_end.go)、[Rust实现](/rust/src/linkedlist/remove_nth_from_end.rs)
+
+要找到链表倒数第k个节点，一般的想法是得知道链表的长度`n`，再用`n-k+1`就得到倒数第k个节点，但是这样需要遍历两次链表，如何在只遍历一次的情况下找到呢？
+
+同样使用双指针技巧，先让一个指针先走`k`步，然后第二个指针开始和第一个指针一起走，第一个指针走完这个整个链表，第二个指针的位置刚好就在`n-k+1`的位置上。
+
+> 另一种方法是使用递归，先一次性递归到链表结尾，递归出栈过程中对计数器加一，当计数器达到k时，此时的节点就是要被删除的节点。
 
 ## 参考资料
 
