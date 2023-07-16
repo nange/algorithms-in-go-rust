@@ -23,3 +23,23 @@ func RemoveNthFromEnd(head *ListNode, n int) *ListNode {
 
 	return dummy.Next
 }
+
+type recursion struct {
+	// 记录递归栈退出的次数，用于和n比较
+	count int
+}
+
+func (r *recursion) RemoveNthFromEndWithRecursion(head *ListNode, n int) *ListNode {
+	if head == nil {
+		return nil
+	}
+
+	head.Next = r.RemoveNthFromEndWithRecursion(head.Next, n)
+
+	r.count++
+	if r.count == n {
+		return head.Next
+	}
+
+	return head
+}
