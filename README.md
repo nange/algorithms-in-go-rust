@@ -69,6 +69,14 @@ Ref: <https://leetcode.cn/problems/remove-nth-node-from-end-of-list/>
 
 > 另一种方法是使用递归，先一次性递归到链表结尾，递归出栈过程中对计数器加一，当计数器达到k时，此时的节点就是要被删除的节点。
 
+##### 单链表中点
+
+Ref: <https://leetcode.cn/problems/middle-of-the-linked-list/>
+
+[Go实现](/go/linkedlist/middle_node.go)、[Rust实现](/rust/src/linkedlist/middle_node.rs)
+
+这个和上面一题类似，只是这次是找中点。同样使用快慢指针技巧，每当慢指针 slow 前进一步，快指针 fast 就前进两步，这样，当 fast 走到链表末尾时，slow 就指向了链表中点。
+
 ## 参考资料
 
 本项目内容主要参考：[labuladong 的算法小抄](https://labuladong.github.io/algo/)
