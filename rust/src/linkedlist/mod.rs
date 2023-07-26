@@ -1,3 +1,4 @@
+mod detect_cycle;
 mod linkedlist;
 mod merge_k_lists;
 mod merge_two_lists;

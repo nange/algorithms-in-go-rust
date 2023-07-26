@@ -77,6 +77,18 @@ Ref: <https://leetcode.cn/problems/middle-of-the-linked-list/>
 
 这个和上面一题类似，只是这次是找中点。同样使用快慢指针技巧，每当慢指针 slow 前进一步，快指针 fast 就前进两步，这样，当 fast 走到链表末尾时，slow 就指向了链表中点。
 
+##### 判断链表是否包含环，并找出环起点
+
+Ref: <https://leetcode.cn/problems/linked-list-cycle-ii/>
+
+[Go实现](/go/linkedlist/detect_cycle.go)、[Rust实现](/rust/src/linkedlist/detect_cycle.rs)
+
+首先我们得知道链表是否有环，实现方法和上面一题类似，通过快慢指针，慢指针走一步，快指针走两步，如果最终两个指针走到了一起，则证明有环，如果快指针为null，则证明无环。
+
+为什么有环快指针就一定会碰到慢指针？我们随便构造一个有环的链表，就会发现，每次走两步，每经过一次有环处，下一次快指针经过的节点都和上一次不同，所以快慢指针早晚一定会遇到。
+
+如何找到环的起点呢？关键在于当快慢指针相遇时，让其中任一个指针指向头节点，然后让它俩以相同速度前进，再次相遇时所在的节点位置就是环开始的位置。
+
 ## 参考资料
 
 本项目内容主要参考：[labuladong 的算法小抄](https://labuladong.github.io/algo/)
