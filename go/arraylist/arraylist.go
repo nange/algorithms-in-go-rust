@@ -50,14 +50,14 @@ func (list *ArrayList) Size() int {
 
 func (list *ArrayList) Get(index int) (interface{}, error) {
 	if index < 0 || index >= list.Size() {
-		return nil, errors.New("Index out of range.")
+		return nil, errors.New("index out of range")
 	}
 	return list.dataStore[index], nil
 }
 
 func (list *ArrayList) Set(index int, newVal interface{}) error {
 	if index < 0 || index >= list.Size() {
-		return errors.New("Index out of range.")
+		return errors.New("index out of range")
 	}
 	list.dataStore[index] = newVal
 
@@ -71,7 +71,7 @@ func (list *ArrayList) Append(val interface{}) {
 
 func (list *ArrayList) Insert(index int, val interface{}) error {
 	if index < 0 || index >= list.Size() {
-		return errors.New("Index out of range.")
+		return errors.New("index out of range")
 	}
 	list.ensureCapacity()
 	list.dataStore = list.dataStore[:list.Size()+1]
@@ -87,7 +87,7 @@ func (list *ArrayList) Insert(index int, val interface{}) error {
 
 func (list *ArrayList) Remove(index int) error {
 	if index < 0 || index >= list.Size() {
-		return errors.New("Index out of range.")
+		return errors.New("index out of range")
 	}
 	list.dataStore = append(list.dataStore[:index], list.dataStore[index+1:]...)
 	list.theSize--
@@ -124,7 +124,7 @@ func (it *arrayListIterator) HasNext() bool {
 
 func (it *arrayListIterator) Next() (interface{}, error) {
 	if !it.HasNext() {
-		return nil, errors.New("No Such Element.")
+		return nil, errors.New("no such element")
 	}
 	v, err := it.list.Get(it.current)
 	it.current++
@@ -133,5 +133,5 @@ func (it *arrayListIterator) Next() (interface{}, error) {
 
 func (it *arrayListIterator) Remove() {
 	it.current--
-	it.list.Remove(it.current)
+	_ = it.list.Remove(it.current)
 }
