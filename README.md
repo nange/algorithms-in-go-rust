@@ -89,6 +89,20 @@ Ref: <https://leetcode.cn/problems/linked-list-cycle-ii/>
 
 如何找到环的起点呢？关键在于当快慢指针相遇时，让其中任一个指针指向头节点，然后让它俩以相同速度前进，再次相遇时所在的节点位置就是环开始的位置。
 
+##### 两个链表是否相交
+
+Ref: <https://leetcode.cn/problems/intersection-of-two-linked-lists/description/>
+
+[Go实现](/go/linkedlist/get_intersection_node.go)、[Rust实现](/rust/src/linkedlist/get_intersection_node.rs)
+
+这题最简单的思路是给每个节点构造HashSet，然后通过HashSet判断是否存在相同节点，但这样空间复杂度较高。
+
+想要通过O(1)的空间复杂度完成就要充分观察相交链表的特点：我们可以通过让两个指针遍历两个链表，想办法让两个指针在相交处相遇，这样就找到了相交节点。
+
+方法一：先分别遍历两个链表，计算出链表长度，将两个长度相减即得到长链表比短链表多出来的长度N，然后让长链表指针先走N步，然后两个指针再一起往前走，两个指针相同了，则找到相交节点。
+
+方法二：分别定义两个指针，用于遍历两个链表，指针1遍历完链表1，则将指针1切换到链表2，对指针2做同样的逻辑，最终当两个指针相同时，则就是相交链表节点。这种方法技巧性更强，不容易想到。
+
 ## 参考资料
 
 本项目内容主要参考：[labuladong 的算法小抄](https://labuladong.github.io/algo/)
