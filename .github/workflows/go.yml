@@ -39,6 +39,7 @@ jobs:
         with:
           version: latest
           args: --timeout 10m0s --verbose
+          working-directory: ./go
 
       - name: Test
-        run: cd go && go test -v ./...
+        run: cd ./go && go test -v ./...
