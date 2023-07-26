@@ -34,7 +34,8 @@ pub fn merge_two_lists(
     dummy.unwrap().next
 }
 
-pub fn merge_two_lists_with_recursion(
+#[allow(dead_code)]
+fn merge_two_lists_with_recursion(
     list1: Option<Box<ListNode>>,
     list2: Option<Box<ListNode>>,
 ) -> Option<Box<ListNode>> {

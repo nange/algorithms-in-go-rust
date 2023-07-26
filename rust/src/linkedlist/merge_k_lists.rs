@@ -5,10 +5,8 @@ use std::collections::BinaryHeap;
 pub fn merge_k_lists(lists: Vec<Option<Box<ListNode>>>) -> Option<Box<ListNode>> {
     // 将链表头节点加入堆
     let mut heap = BinaryHeap::new();
-    for node in lists {
-        if let Some(boxed_node) = node {
-            heap.push(Reverse(boxed_node));
-        }
+    for node in lists.into_iter().flatten() {
+        heap.push(Reverse(node));
     }
 
     // 虚拟头结点
