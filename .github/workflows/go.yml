@@ -11,7 +11,7 @@ on:
 
 jobs:
   lint-test-build-linux:
-    name: Lint-Test-Linux
+    name: test-lint
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -34,12 +34,12 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-go-
 
+      - name: Test
+        run: cd go && go test -v ./...
+      
       - name: golangci-lint
         uses: golangci/golangci-lint-action@v3
         with:
           version: latest
           args: --timeout 10m0s --verbose
           working-directory: go
-
-      - name: Test
-        run: cd go && go test -v ./...
