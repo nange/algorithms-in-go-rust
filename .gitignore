@@ -1,6 +1,5 @@
 pkg
 .idea
-go.sum
 
 /rust/target
 **/*.rs.bk
