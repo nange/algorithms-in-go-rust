@@ -10,7 +10,8 @@ env:
   CARGO_TERM_COLOR: always
 
 jobs:
-  build:
+  test-lint:
+    name: test-lint
     runs-on: ubuntu-latest
 
     steps:
@@ -26,8 +27,8 @@ jobs:
         rustc --version
         cargo clippy --version
 
+    - name: Run tests
+      run: cd rust && cargo test 
+
     - name: Run lint
       run: cd rust && cargo clippy
-
-    - name: Run tests
-      run: cargo test 
