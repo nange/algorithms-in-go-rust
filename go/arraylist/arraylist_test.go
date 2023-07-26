@@ -21,7 +21,7 @@ func TestGet(t *testing.T) {
 	list.Append("world")
 	v, err := list.Get(1)
 	if sv, ok := v.(string); !ok || sv != "world" || err != nil {
-		t.Errorf("arraylist#Get() failed. get for error value:%s, expected value:world.")
+		t.Errorf("arraylist#Get() failed. get for error value:%s, expected value:world.", sv)
 	}
 }
 

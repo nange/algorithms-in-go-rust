@@ -3,7 +3,7 @@ module the_algorithms
 go 1.20
 
 require (
-	github.com/mitchellh/hashstructure v1.1.0
+	github.com/mitchellh/hashstructure/v2 v2.0.2
 	github.com/stretchr/testify v1.8.4
 )
 

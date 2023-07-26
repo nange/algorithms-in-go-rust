@@ -3,7 +3,7 @@ package hashmap
 import (
 	"fmt"
 
-	"github.com/mitchellh/hashstructure"
+	"github.com/mitchellh/hashstructure/v2"
 )
 
 const ratio = .75 // ratio sets the capacity the hashmap has to be at before it expands
@@ -32,7 +32,7 @@ func hash(key uint64) uint64 {
 }
 
 func hashAny(data interface{}) int64 {
-	h, _ := hashstructure.Hash(data, nil)
+	h, _ := hashstructure.Hash(data, hashstructure.FormatV2, nil)
 	return int64(hash(h))
 }
 
