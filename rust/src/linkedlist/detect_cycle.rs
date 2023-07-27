@@ -1,12 +1,8 @@
 use std::{cell::RefCell, rc::Rc};
 
-#[derive(PartialEq, Eq, Clone, Debug)]
-pub struct ListNode {
-    pub val: i32,
-    pub next: Option<Rc<RefCell<ListNode>>>,
-}
+use super::ListNode2;
 
-pub fn detect_cycle(head: Option<Rc<RefCell<ListNode>>>) -> Option<Rc<RefCell<ListNode>>> {
+pub fn detect_cycle(head: Option<Rc<RefCell<ListNode2>>>) -> Option<Rc<RefCell<ListNode2>>> {
     let mut slow = head.clone();
     let mut fast = head.clone();
 
@@ -44,10 +40,10 @@ mod tests {
         let ret = detect_cycle(None);
         assert!(ret.is_none());
 
-        let head = Some(Rc::new(RefCell::new(ListNode { val: 1, next: None })));
-        let node1 = Some(Rc::new(RefCell::new(ListNode { val: 2, next: None })));
-        let node2 = Some(Rc::new(RefCell::new(ListNode { val: 3, next: None })));
-        let node3 = Some(Rc::new(RefCell::new(ListNode { val: 4, next: None })));
+        let head = Some(Rc::new(RefCell::new(ListNode2 { val: 1, next: None })));
+        let node1 = Some(Rc::new(RefCell::new(ListNode2 { val: 2, next: None })));
+        let node2 = Some(Rc::new(RefCell::new(ListNode2 { val: 3, next: None })));
+        let node3 = Some(Rc::new(RefCell::new(ListNode2 { val: 4, next: None })));
         head.as_ref().unwrap().borrow_mut().next = node1.clone();
         node1.as_ref().unwrap().borrow_mut().next = node2.clone();
         node2.as_ref().unwrap().borrow_mut().next = node3.clone();
