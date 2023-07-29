@@ -5,6 +5,7 @@ mod merge_two_lists;
 mod middle_node;
 mod partition;
 mod remove_nth_from_end;
+mod reverse_list;
 
 pub use detect_cycle::detect_cycle;
 pub use get_intersection_node::get_intersection_node;
@@ -13,6 +14,7 @@ pub use merge_two_lists::merge_two_lists;
 pub use middle_node::middle_node;
 pub use partition::partition;
 pub use remove_nth_from_end::remove_nth_from_end;
+pub use reverse_list::reverse_list;
 
 use std::{cell::RefCell, cmp::Ord, rc::Rc};
 

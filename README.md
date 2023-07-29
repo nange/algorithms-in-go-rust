@@ -103,6 +103,17 @@ Ref: <https://leetcode.cn/problems/intersection-of-two-linked-lists/description/
 
 方法二：分别定义两个指针，用于遍历两个链表，指针1遍历完链表1，则将指针1切换到链表2，对指针2做同样的逻辑，最终当两个指针相同时，则就是相交链表节点。这种方法技巧性更强，不容易想到。
 
+#### 递归魔法
+
+##### 反转链表
+
+Ref: <https://leetcode.cn/problems/reverse-linked-list/>
+
+[Go实现](/go/linkedlist/reverse_list.go)、[Rust实现](/rust/src/linkedlist/reverse_list.rs)
+
+这个题目明显可以使用迭代方法，但需要小心处理临时对象的保存和边界条件的处理。
+更简单的方式是使用递归法，通过递归的方式找到最后一个节点，之后从倒数第二个节点开始逐个反转链表。
+
 ## 参考资料
 
 本项目内容主要参考：[labuladong 的算法小抄](https://labuladong.github.io/algo/)
