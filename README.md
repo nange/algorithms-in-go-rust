@@ -114,6 +114,14 @@ Ref: <https://leetcode.cn/problems/reverse-linked-list/>
 这个题目明显可以使用迭代方法，但需要小心处理临时对象的保存和边界条件的处理。
 更简单的方式是使用递归法，通过递归的方式找到最后一个节点，之后从倒数第二个节点开始逐个反转链表。
 
+##### 反转链表前N个节点
+
+[Go实现](/go/linkedlist/reverse_list_n.go)、[Rust实现](/rust/src/linkedlist/reverse_list_n.rs)
+
+这个题目和上一个的区别是：只反转前N个，然后第N个作为新的头节点，原来的头结点的Next节点指向原来的第N+1个节点。
+
+方法是递归到第N个节点开始返回，像之前的逻辑一样反转链表，不同的是需要返回第N个和第N+1个节点，第N个节点作为新的头节点，第N+1个节点用于后续反转的节点指向它。
+
 ## 参考资料
 
 本项目内容主要参考：[labuladong 的算法小抄](https://labuladong.github.io/algo/)
