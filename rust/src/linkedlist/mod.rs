@@ -6,6 +6,7 @@ mod middle_node;
 mod partition;
 mod remove_nth_from_end;
 mod reverse_list;
+mod reverse_list_n;
 
 pub use detect_cycle::detect_cycle;
 pub use get_intersection_node::get_intersection_node;
@@ -15,6 +16,7 @@ pub use middle_node::middle_node;
 pub use partition::partition;
 pub use remove_nth_from_end::remove_nth_from_end;
 pub use reverse_list::reverse_list;
+pub use reverse_list_n::reverse_list_n;
 
 use std::{cell::RefCell, cmp::Ord, rc::Rc};
 
