@@ -122,6 +122,18 @@ Ref: <https://leetcode.cn/problems/reverse-linked-list/>
 
 方法是递归到第N个节点开始返回，像之前的逻辑一样反转链表，不同的是需要返回第N个和第N+1个节点，第N个节点作为新的头节点，第N+1个节点用于后续反转的节点指向它。
 
+##### K个一组翻转链表
+
+Ref: <https://leetcode.cn/problems/reverse-nodes-in-k-group/>
+
+[Go实现](/go/linkedlist/reverse_k_group.go)、[Rust实现](/rust/src/linkedlist/reverse_k_group.rs)
+
+链表是一种兼具递归好迭代性质的结构，分析这个问题可以发现此问题具有递归性质。
+
+比如对这个链表调用 `reverseKGroup(head, 2)`，即以 2 个节点为一组反转链表，如果我们可以把前两个节点翻转，那后面的节点该怎么处理？后面的节点还是相似的一条链表，而且规模（长度）比原来的这条链表更小，这就是**子问题**。
+
+我们只需要2个一组翻转后的结果再指向下一个`reverseKGroup(head, 2)`的结果，这样就递归实现了翻转，递归退出条件是：最后的元素不足 k 个，就保持不变。
+
 ## 参考资料
 
 本项目内容主要参考：[labuladong 的算法小抄](https://labuladong.github.io/algo/)
