@@ -2,10 +2,10 @@ package linkedlist
 
 // 翻转[a, b)的元素
 func reverse(a, b *ListNode) *ListNode {
-	var pre, curr, next *ListNode = nil, a, a
+	var pre, curr *ListNode = nil, a
 	// 移动到b指针时，停止
 	for curr != b {
-		next = curr.Next
+		next := curr.Next
 		curr.Next = pre
 		pre = curr
 		curr = next
