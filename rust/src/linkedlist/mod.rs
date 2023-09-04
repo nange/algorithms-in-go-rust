@@ -5,6 +5,7 @@ mod merge_two_lists;
 mod middle_node;
 mod partition;
 mod remove_nth_from_end;
+mod reverse_k_group;
 mod reverse_list;
 mod reverse_list_n;
 
@@ -15,6 +16,7 @@ pub use merge_two_lists::merge_two_lists;
 pub use middle_node::middle_node;
 pub use partition::partition;
 pub use remove_nth_from_end::remove_nth_from_end;
+pub use reverse_k_group::reverse_k_group;
 pub use reverse_list::reverse_list;
 pub use reverse_list_n::reverse_list_n;
 
@@ -25,6 +27,13 @@ use std::{cell::RefCell, cmp::Ord, rc::Rc};
 pub struct ListNode {
     pub val: i32,
     pub next: Option<Box<ListNode>>,
+}
+
+impl ListNode {
+    #[inline]
+    fn new(val: i32) -> Self {
+        ListNode { next: None, val }
+    }
 }
 
 impl Ord for ListNode {
