@@ -41,12 +41,41 @@ pub fn reverse_k_group(head: Option<Box<ListNode>>, k: i32) -> Option<Box<ListNo
     prev
 }
 
-// TODO: 另一种实现
+/// 另一种通过`Rc`, `RefCell`实现的版本
 pub fn reverse_k_group2(
     head: Option<Rc<RefCell<ListNode2>>>,
     k: i32,
 ) -> Option<Rc<RefCell<ListNode2>>> {
-    todo!()
+    if k <= 1 {
+        return head;
+    }
+
+    // 1. 从head开始，确认其后至少包含k个节点，否则直接返回head
+    let mut curr = head.clone();
+    for _ in 0..k - 1 {
+        if curr.is_none() || curr.as_ref().unwrap().borrow().next.is_none() {
+            return head.clone();
+        }
+        let next = curr.as_deref().unwrap().borrow().next.clone();
+        curr = next;
+    }
+
+    // 2. 反转前k个节点
+    let mut curr = head.clone();
+    let mut prev = None;
+    for _ in 0..k {
+        let next = curr.as_ref().unwrap().borrow_mut().next.take();
+        curr.as_ref().unwrap().borrow_mut().next = prev.take();
+        prev = curr;
+        curr = next;
+    }
+
+    // 3. 将翻转后的尾节点的next指向后续递归翻转后的头节点
+    let new_tail = head.clone();
+    new_tail.as_ref().unwrap().borrow_mut().next = reverse_k_group2(curr, k);
+
+    // 返回翻转后的头节点
+    prev
 }
 
 #[cfg(test)]
@@ -71,6 +100,7 @@ mod tests {
                 })),
             })),
         }));
+
         let ret = reverse_k_group(head, 2);
         assert_eq!(
             ret,
@@ -87,6 +117,44 @@ mod tests {
                     })),
                 })),
             }))
+        );
+    }
+
+    #[test]
+    fn test_reverse_k_group2() {
+        let ret = reverse_k_group2(None, 2);
+        assert!(ret.is_none());
+
+        let head = Some(Rc::new(RefCell::new(ListNode2 {
+            val: 1,
+            next: Some(Rc::new(RefCell::new(ListNode2 {
+                val: 2,
+                next: Some(Rc::new(RefCell::new(ListNode2 {
+                    val: 3,
+                    next: Some(Rc::new(RefCell::new(ListNode2 {
+                        val: 4,
+                        next: Some(Rc::new(RefCell::new(ListNode2 { val: 5, next: None }))),
+                    }))),
+                }))),
+            }))),
+        })));
+
+        let ret = reverse_k_group2(head, 2);
+        assert_eq!(
+            ret,
+            Some(Rc::new(RefCell::new(ListNode2 {
+                val: 2,
+                next: Some(Rc::new(RefCell::new(ListNode2 {
+                    val: 1,
+                    next: Some(Rc::new(RefCell::new(ListNode2 {
+                        val: 4,
+                        next: Some(Rc::new(RefCell::new(ListNode2 {
+                            val: 3,
+                            next: Some(Rc::new(RefCell::new(ListNode2 { val: 5, next: None }))),
+                        }))),
+                    }))),
+                }))),
+            })))
         );
     }
 }
