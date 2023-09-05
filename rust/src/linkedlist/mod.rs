@@ -17,6 +17,7 @@ pub use middle_node::middle_node;
 pub use partition::partition;
 pub use remove_nth_from_end::remove_nth_from_end;
 pub use reverse_k_group::reverse_k_group;
+pub use reverse_k_group::reverse_k_group2;
 pub use reverse_list::reverse_list;
 pub use reverse_list_n::reverse_list_n;
 
