@@ -53,5 +53,14 @@ func Test_IsPalindrome(t *testing.T) {
 			},
 		})
 		assert.True(t, ret4)
+
+		ret5 := fn(&ListNode{
+			Val: 1,
+			Next: &ListNode{
+				Val:  2,
+				Next: nil,
+			},
+		})
+		assert.False(t, ret5)
 	}
 }

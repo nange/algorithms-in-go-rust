@@ -2,10 +2,10 @@ package linkedlist
 
 // IsPalindromeV1 V1版本采用递归方式，代码简单，空间复杂度为O(N)
 func IsPalindromeV1(head *ListNode) bool {
-	if head == nil || head.Next == nil {
+	if head == nil {
 		return false
 	}
-	if head.Next.Next == nil {
+	if head.Next == nil {
 		return true
 	}
 
@@ -29,10 +29,10 @@ func IsPalindromeV1(head *ListNode) bool {
 
 // IsPalindromeV2 不用递归，使空间复杂度变为O(1)
 func IsPalindromeV2(head *ListNode) bool {
-	if head == nil || head.Next == nil {
+	if head == nil {
 		return false
 	}
-	if head.Next.Next == nil {
+	if head.Next == nil {
 		return true
 	}
 
