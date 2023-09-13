@@ -122,7 +122,7 @@ Ref: <https://leetcode.cn/problems/reverse-linked-list/>
 
 方法是递归到第N个节点开始返回，像之前的逻辑一样反转链表，不同的是需要返回第N个和第N+1个节点，第N个节点作为新的头节点，第N+1个节点用于后续反转的节点指向它。
 
-##### K个一组翻转链表
+#### K个一组翻转链表
 
 Ref: <https://leetcode.cn/problems/reverse-nodes-in-k-group/>
 
@@ -134,6 +134,17 @@ Ref: <https://leetcode.cn/problems/reverse-nodes-in-k-group/>
 
 我们只需要2个一组翻转后的结果再指向下一个`reverseKGroup(head, 2)`的结果，这样就递归实现了翻转，递归退出条件是：最后的元素不足 k 个，就保持不变。
 
+#### 判断回文链表
+
+[Go实现](/go/linkedlist/is_palindrome.go)、[Rust实现](/rust/src/linkedlist/is_palindrome.rs)
+
+回文链表是一个特殊类型的链表，其中链表的前半部分和后半部分在反转后是相同的。也就是说，从前向后读和从后向前读，链表中的元素顺序是相同的。
+
+一种实现是可以遍历链表，将链表元素加入一个栈结构中，然后再将栈中元素和原始链表元素挨个比较，看是否相同
+（栈结构也可以采用后序递归遍历链表节点模拟，在递归调用中进行比较元素）。 这种方法唯一的缺点是空间复杂度为O(N)，较高。
+
+另一种更优的空间复杂度实现方式是，找到链表中点，把中点之后的部分反转，再和中点之前的部分进行比较，看元素是否相等。空间复杂度为O(1)。
+
 ## 参考资料
 
-本项目内容主要参考：[labuladong 的算法小抄](https://labuladong.github.io/algo/)
+* [labuladong 的算法小抄](https://labuladong.github.io/algo/)
