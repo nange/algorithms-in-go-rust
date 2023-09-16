@@ -133,6 +133,8 @@ k 个，就保持不变。
 
 ### 判断回文链表
 
+Ref: <https://leetcode.cn/problems/palindrome-linked-list/description/>
+
 [Go实现](/go/linkedlist/is_palindrome.go)、[Rust实现](/rust/src/linkedlist/is_palindrome.rs)
 
 回文链表是一个特殊类型的链表，其中链表的前半部分和后半部分在反转后是相同的。也就是说，从前向后读和从后向前读，链表中的元素顺序是相同的。
@@ -142,6 +144,25 @@ k 个，就保持不变。
 
 另一种更优的空间复杂度实现方式是，找到链表中点，把中点之后的部分反转，再和中点之前的部分进行比较，看元素是否相等。空间复杂度为O(
 1)。
+
+## 数组相关
+
+### 双指针技巧
+
+双指针技巧主要分为两类：左右指针和快慢指针。 
+
+#### 删除有序数组中的重复项
+
+Ref: <https://leetcode.cn/problems/remove-duplicates-from-sorted-array/>
+
+[Go实现](/go/arraylist/remove_duplicates.go)、[Rust实现](/rust/src/linkedlist/remove_duplicates.rs)
+
+由于数组是有序的，重复的元素必然是连续的，这很容易就能找到重复的元素。 
+难点主要有两个：一是需要原地删除，不能用新数组；由此引出第二个难点，如果每次发现相同元素就地删除，这样的时间复杂度非常高(N^2)，
+因为每删除一个元素就需要将后面的元素往前移动。
+
+高效实现此算法是通过快慢指针技巧：让慢指针 `slow` 走在后面，快指针 `fast` 走在前面探路，找到一个不重复的元素就让 `slow` 前进一步并把元素赋值给 `slow` 。
+这样，就保证了 `nums[0..slow]` 都是无重复的元素，当 `fast` 指针遍历完整个数组 `nums` 后，`nums[0..slow]` 就是整个数组去重之后的结果。
 
 ## 参考资料
 
