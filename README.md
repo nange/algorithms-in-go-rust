@@ -155,7 +155,7 @@ Ref: <https://leetcode.cn/problems/palindrome-linked-list/description/>
 
 Ref: <https://leetcode.cn/problems/remove-duplicates-from-sorted-array/>
 
-[Go实现](/go/arraylist/remove_duplicates.go)、[Rust实现](/rust/src/linkedlist/remove_duplicates.rs)
+[Go实现](/go/arraylist/remove_duplicates.go)、[Rust实现](/rust/src/arraylist/remove_duplicates.rs)
 
 由于数组是有序的，重复的元素必然是连续的，这很容易就能找到重复的元素。 
 难点主要有两个：一是需要原地删除，不能用新数组；由此引出第二个难点，如果每次发现相同元素就地删除，这样的时间复杂度非常高(N^2)，
