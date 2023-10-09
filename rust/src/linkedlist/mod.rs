@@ -15,6 +15,7 @@ pub use reverse_list_n::reverse_list_n;
 
 mod detect_cycle;
 mod get_intersection_node;
+mod is_palindrome;
 mod merge_k_lists;
 mod merge_two_lists;
 mod middle_node;
@@ -23,7 +24,6 @@ mod remove_nth_from_end;
 mod reverse_k_group;
 mod reverse_list;
 mod reverse_list_n;
-mod is_palindrome;
 
 /// Definition for singly-linked list.
 #[derive(PartialEq, Eq, Clone, Debug)]
@@ -48,7 +48,7 @@ impl Ord for ListNode {
 
 impl PartialOrd for ListNode {
     fn partial_cmp(&self, other: &Self) -> Option<std::cmp::Ordering> {
-        self.val.partial_cmp(&other.val)
+        Some(self.cmp(other))
     }
 }
 
