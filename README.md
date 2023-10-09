@@ -149,7 +149,7 @@ Ref: <https://leetcode.cn/problems/palindrome-linked-list/description/>
 
 ### 双指针技巧
 
-双指针技巧主要分为两类：左右指针和快慢指针。 
+双指针技巧主要分为两类：左右指针和快慢指针。
 
 #### 删除有序数组中的重复项
 
@@ -157,13 +157,21 @@ Ref: <https://leetcode.cn/problems/remove-duplicates-from-sorted-array/>
 
 [Go实现](/go/arraylist/remove_duplicates.go)、[Rust实现](/rust/src/arraylist/remove_duplicates.rs)
 
-由于数组是有序的，重复的元素必然是连续的，这很容易就能找到重复的元素。 
+由于数组是有序的，重复的元素必然是连续的，这很容易就能找到重复的元素。
 难点主要有两个：一是需要原地删除，不能用新数组；由此引出第二个难点，如果每次发现相同元素就地删除，这样的时间复杂度非常高(N^2)，
 因为每删除一个元素就需要将后面的元素往前移动。
 
 高效实现此算法是通过快慢指针技巧：让慢指针 `slow` 走在后面，快指针 `fast` 走在前面探路，找到一个不重复的元素就让 `slow` 前进一步并把元素赋值给 `slow` 。
 这样，就保证了 `nums[0..slow]` 都是无重复的元素，当 `fast` 指针遍历完整个数组 `nums` 后，`nums[0..slow]` 就是整个数组去重之后的结果。
 
+#### 从数组中删除指定元素
+
+Ref: <https://leetcode.cn/problems/remove-element/description/>
+
+[Go实现](/go/arraylist/remove_element.go)
+
+算法和上面类似，还是使用快慢指针。差别是快指针的值不等于指定值时，将值赋值给慢指针，再将慢指针往后走一步。（赋值前可以进一步判断快慢指针是否相同，相同则不用赋值，进一步提高性能）
+
 ## 参考资料
 
-* [labuladong 的算法小抄](https://labuladong.github.io/algo/)
+- [labuladong 的算法小抄](https://labuladong.github.io/algo/)
