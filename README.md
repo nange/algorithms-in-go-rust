@@ -168,7 +168,7 @@ Ref: <https://leetcode.cn/problems/remove-duplicates-from-sorted-array/>
 
 Ref: <https://leetcode.cn/problems/remove-element/description/>
 
-[Go实现](/go/arraylist/remove_element.go)
+[Go实现](/go/arraylist/remove_element.go)、[Rust实现](/rust/src/arraylist/remove_element.rs)
 
 算法和上面类似，还是使用快慢指针。差别是快指针的值不等于指定值时，将值赋值给慢指针，再将慢指针往后走一步。（赋值前可以进一步判断快慢指针是否相同，相同则不用赋值，进一步提高性能）
 
