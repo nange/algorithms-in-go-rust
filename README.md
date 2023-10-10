@@ -172,6 +172,14 @@ Ref: <https://leetcode.cn/problems/remove-element/description/>
 
 算法和上面类似，还是使用快慢指针。差别是快指针的值不等于指定值时，将值赋值给慢指针，再将慢指针往后走一步。（赋值前可以进一步判断快慢指针是否相同，相同则不用赋值，进一步提高性能）
 
+#### 移动数组中的零到末尾
+
+Ref: <https://leetcode.cn/problems/move-zeroes/>
+
+[Go实现](/go/arraylist/move_zeroes.go)、[Rust实现](/rust/src/arraylist/move_zeroes.rs)
+
+由于不能改变非零元素的相对顺序，基本上就只能从前往后顺序遍历，加上末尾都会是零，也就是前面的零都会被删除，因此可以基于上面的算法基础上，把零删除，然后再把尾部全部设置为0，即可。
+
 ## 参考资料
 
 - [labuladong 的算法小抄](https://labuladong.github.io/algo/)
