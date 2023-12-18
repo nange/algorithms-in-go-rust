@@ -6,7 +6,7 @@
 
 - 操作系统：Ubuntu-latest 64位
 - Go语言版本： Go 1.21
-- Rust语言版本： Rust 1.72
+- Rust语言版本： Rust 1.74
 
 ## 链表相关
 
@@ -179,6 +179,14 @@ Ref: <https://leetcode.cn/problems/move-zeroes/>
 [Go实现](/go/arraylist/move_zeroes.go)、[Rust实现](/rust/src/arraylist/move_zeroes.rs)
 
 由于不能改变非零元素的相对顺序，基本上就只能从前往后顺序遍历，加上末尾都会是零，也就是前面的零都会被删除，因此可以基于上面的算法基础上，把零删除，然后再把尾部全部设置为0，即可。
+
+#### 反转字符串
+
+Ref: <https://leetcode.cn/problems/reverse-string/>
+
+[Go实现](/go/arraylist/reverse_string.go)、[Rust实现](/rust/src/arraylist/reverse_string.rs)
+
+反转字符串实际上非常简单，在数组前后使用双指针，交换指针的值即可。
 
 ## 参考资料
 
