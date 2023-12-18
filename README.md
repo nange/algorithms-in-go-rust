@@ -188,6 +188,15 @@ Ref: <https://leetcode.cn/problems/reverse-string/>
 
 反转字符串实际上非常简单，在数组前后使用双指针，交换指针的值即可。
 
+#### 寻找最长回文子串
+
+Ref: <https://leetcode.cn/problems/longest-palindromic-substring/description/>
+
+[Go实现](/go/arraylist/longest_palindrome.go)、[Rust实现](/rust/src/arraylist/longest_palindrome.rs)
+
+实现思路是挨个从每个元素出发判断，寻找最长回文，找出最长的；但回文有两种形式需要考虑到，即中间位置是一个相同的元素和两个相同的元素
+（也可认为是奇数个回文和偶数个回文），因此每次判断是需要把两种情况都考虑进去。
+
 ## 参考资料
 
 - [labuladong 的算法小抄](https://labuladong.github.io/algo/)

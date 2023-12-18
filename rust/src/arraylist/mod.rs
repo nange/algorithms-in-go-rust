@@ -6,3 +6,4 @@ mod move_zeroes;
 mod remove_duplicates;
 mod remove_element;
 mod reverse_string;
+mod longest_palindrome;
